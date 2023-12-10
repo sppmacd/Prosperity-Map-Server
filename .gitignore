@@ -1,0 +1,5 @@
+token.txt
+*.png
+cache*
+maps*
+__pycache__
