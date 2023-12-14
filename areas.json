@@ -26,6 +26,22 @@
     "zoom": 0,
     "webHidden": true
   },
+  "Near regions - overworld": {
+    "dimension": "overworld",
+    "xmin": -8192,
+    "xmax": 8192,
+    "zmin": -8192,
+    "zmax": 8192,
+    "zoom": 2
+  },
+  "Near regions - the_nether": {
+    "dimension": "the_nether",
+    "xmin": -8192,
+    "xmax": 8192,
+    "zmin": -8192,
+    "zmax": 8192,
+    "zoom": 2
+  },
   "Spawn area - overworld": {
     "dimension": "overworld",
     "xmin": -1024,
