@@ -1,7 +1,6 @@
 import json
 import math
 import traceback
-
 import caching
 import datetime
 from PIL import Image, ImageDraw
@@ -102,3 +101,24 @@ for name, area in areas.items():
         build_full_map(name, dimension, xrange, zrange, zoom=zoom, scaledown=scaledown)
     except Exception:
         print(traceback.format_exc())
+
+# add index
+for date in os.listdir("maps"):
+    if date == "list.json":
+        continue
+    for area in os.listdir(f"maps/{date}"):
+        area = os.path.splitext(area)[0]
+        if not "files" in areas[area]:
+            areas[area]["files"] = []
+        areas[area]["files"].append(date)
+
+for area in areas.values():
+    area["files"].sort()
+
+# remove web hidden ones
+for k, v in [*areas.items()]:
+    if v.get("webHidden") or False:
+        del areas[k]
+
+with open("maps/list.json", "w") as f:
+    json.dump(areas, f, indent=4)
